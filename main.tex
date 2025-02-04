@@ -1,0 +1,32 @@
+\documentclass[A4,12pt]{book}
+\usepackage{config}
+\input{them.tex}
+
+
+
+
+\begin{document}
+%-------		Portada		-------	
+	\author{Cesar Ricardo Altamirano Nava}
+	\title{Plantilla para notas}
+	\date{2025}
+%-------		Tablas de contenido		-------	
+	\frontmatter
+	\maketitle
+	\tableofcontents
+	\newpage
+	\listoffigures
+    
+        \include{cap/intro}
+        \mainmatter
+%-------		Contenido		-------	
+        \part{Tutorial}
+	\include{cap/cap_01}
+        \part{Contenido}
+        \include{cap/cap_02}
+	\backmatter
+%-------		Bibliografia	-------	    
+        \nocite{*}
+	% bibliografia
+	\printbibliography[title={Bibliografía},heading=bibintoc]
+\end{document}

@@ -1,0 +1,96 @@
+\chapter{Figuras e imágenes}
+
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}
+		% Functions i
+		\path[->] (0.8, 0) edge [bend right] node[left, xshift=-2mm] {$\phi_i$} (-1, -2.9);
+		\draw[white,fill=white] (0.06,-0.57) circle (.15cm);
+		\path[->] (-0.7, -3.05) edge [bend right] node [right, yshift=-3mm] {$\phi^{-1}_i$} (1.093, -0.11);
+		\draw[white, fill=white] (0.95,-1.2) circle (.15cm);
+		
+		% Functions j
+		\path[->] (5.8, -2.8) edge [bend left] node[midway, xshift=-5mm, yshift=-3mm] {$\phi^{-1}_j$} (3.8, -0.35);
+		\draw[white, fill=white] (4,-1.1) circle (.15cm);
+		\path[->] (4.2, 0) edge [bend left] node[right, xshift=2mm] {$\phi_j$} (6.2, -2.8);
+		\draw[white, fill=white] (4.54,-0.12) circle (.15cm);
+		
+		% Manifold
+		\draw[smooth cycle, tension=0.4, fill=white, pattern color=linkscolor_1, pattern=north west lines, opacity=0.7] plot coordinates{(2,2) (-0.5,0) (3,-2) (5,1)} node at (3,2.3) {$M$};
+		
+		% Help lines
+		%\draw[help lines] (-3,-6) grid (8,6);
+		
+		% Subsets
+		\draw[smooth cycle, pattern color=linkscolor, pattern=crosshatch dots] 
+		plot coordinates {(1,0) (1.5, 1.2) (2.5,1.3) (2.6, 0.4)} 
+		node [label={[label distance=-0.3cm, xshift=-2cm]:$U_i$}] {};
+		\draw[smooth cycle, pattern color=linkscolor_2, pattern=crosshatch dots] 
+		plot coordinates {(4, 0) (3.7, 0.8) (3.0, 1.2) (2.5, 1.2) (2.2, 0.8) (2.3, 0.5) (2.6, 0.3) (3.5, 0.0)} 
+		node [label={[label distance=-0.8cm, xshift=.75cm, yshift=1cm]:$U_j$}] {};
+		
+		% First Axis
+		\draw[thick, ->] (-3,-5) -- (0, -5) node [label=above:$\phi_i(U_i)$] {};
+		\draw[thick, ->] (-3,-5) -- (-3, -2) node [label=right:$\mathbb{R}^m$] {};
+		
+		% Arrow from i to j
+		\draw[->] (0, -3.85) -- node[midway, above]{$\psi_{ij}$} (4.5, -3.85);
+		
+		% Second Axis
+		\draw[thick, ->] (5, -5) -- (8, -5) node [label=above:$\phi_j(U_j)$] {};
+		\draw[thick, ->] (5, -5) -- (5, -2) node [label=right:$\mathbb{R}^m$] {};
+		
+		% Sets in R^m
+		\draw[white, pattern color=linkscolor, pattern=crosshatch dots] (-0.67, -3.06) -- +(180:0.8) arc (180:270:0.8);
+		\fill[even odd rule, white] [smooth cycle] plot coordinates{(-2, -4.5) (-2, -3.2) (-0.8, -3.2) (-0.8, -4.5)} (-0.67, -3.06) -- +(180:0.8) arc (180:270:0.8);
+		\draw[smooth cycle] plot coordinates{(-2, -4.5) (-2, -3.2) (-0.8, -3.2) (-0.8, -4.5)};
+		\draw (-1.45, -3.06) arc (180:270:0.8);
+		
+		\draw[white, pattern color=linkscolor_2, pattern=crosshatch dots] (5.7, -3.06) -- +(-90:0.8) arc (-90:0:0.8);
+		\fill[even odd rule, white] [smooth cycle] plot coordinates{(7, -4.5) (7, -3.2) (5.8, -3.2) (5.8, -4.5)} (5.7, -3.06) -- +(-90:0.8) arc (-90:0:0.8);
+		\draw[smooth cycle] plot coordinates{(7, -4.5) (7, -3.2) (5.8, -3.2) (5.8, -4.5)};
+		\draw (5.69, -3.85) arc (-90:0:0.8);
+		
+	\end{tikzpicture}
+	\caption{Variedad diferencial}
+	\label{fig:01}
+\end{figure}
+
+\begin{tikzpicture}[thick,every node/.style = {
+    execute at begin node = $,
+    execute at end   node = $}]
+  \draw (-2.5,2.5) to[closed, curve through =
+    { (2,2.5) (5,4.5) (4.5,-1) (-5,1) } ] (-2.5,2.5); 
+  \draw (-3.8,-1.7) to[curve through = {(-3,0.7)}]   (-1,1.7);
+  \draw (-3,     2) to[curve through = {  (0,0) }]    (2.5,1);
+  \draw ( 1,   1.3) to[curve through = { (4,0.2)}] (5.75,1.5);
+  \coordinate (c1) at (-3.15,0.5);
+  \coordinate (c2) at    (-1,0.2);
+  \coordinate (c3) at  (3.3,0.13);
+  \draw[->] (c1) circle (1pt) edge[-stealth] ++(125:0.3);
+  \draw[->] (c2) circle (1pt) edge[-stealth] ++(60:0.3);
+  \draw[->] (c3) circle (1pt) edge[-stealth] ++(110:0.3);
+  \draw (-2.82,0.8) to[out=-20, in=-35, looseness=2] (c1)
+    to[out=135, in=160, looseness=3] (-3,0.85);
+  \draw (-0.7,0)    to[out=200, in=270, looseness=2] (c2)
+    to[out=70, in=80, looseness=2.5] (-0.6,0.2);
+  \draw (3.7,0.05)  to[out=270, in=280, looseness=2] (c3)
+    to[out=100, in=110, looseness=2.5] (3.7,0.25);
+  \coordinate (p1) at     (-2,-1);
+  \coordinate (p2) at (-0.8,-0.7);
+  \coordinate (p3) at  (2.5,-1.2);
+  \coordinate (x)  at.     (0,-1);
+  \draw (p1) node[above]       {p_1};
+  \draw (p2) node[above right] {p_2};
+  \draw (p3) node[above left]  {p_3};
+  \draw (x)  circle (1pt) node[above right] {x};
+  \draw[dotted] (c3) to[curve through = {(p3) (1.5,-1.2) (0.3,-1.7) (x) (p2)}] (c2);
+  \draw[dotted] (x)  to[curve through = {(p1) (-2.5,-0.5)}] (c1);
+  \node at (-4.2,-0.3) {D_1};
+  \node at (0.9,0.4)   {D_2};
+  \node at (5.25,1.4)  {D_3};
+  \node[above left=4mm  and -3mm] at (c1) {\log \mathbb{Q}_\ell(1)};
+  \node[above right=3mm and -3mm] at (c2) {\log \mathbb{Q}_\ell(1)};
+  \node[above left=3mm  and -7mm] at (c3) {\log \mathbb{Q}_\ell(1)};
+  \node at (5,3) {X};
+\end{tikzpicture}

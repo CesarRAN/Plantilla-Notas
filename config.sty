@@ -1,0 +1,182 @@
+%--------------------------------------------------------------------------
+% 		GEOMETRY 
+%--------------------------------------------------------------------------
+
+\RequirePackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+%--------------------------------------------------------------------------
+% 		Graficos  
+%--------------------------------------------------------------------------
+
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{tkz-tab}
+\RequirePackage{varwidth}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
+\tcbuselibrary{listings}
+\RequirePackage{etoolbox} 
+% Carga de librerías de TikZ en una sola instrucción
+\usetikzlibrary{positioning, shapes.geometric, shadows, shadows.blur, shapes.misc, patterns, arrows, angles,quotes, arrows.meta, calc, decorations.markings, bending, hobby}
+
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{patchplots}
+
+% --- Paquetes para Física y Unidades ---
+\RequirePackage{physics}              % Notación simplificada para expresiones físicas.
+\RequirePackage{siunitx}              % Formateo consistente de unidades SI.
+
+
+\tikzset{>=latex}                % Uso de la cabeza de flecha 'LaTeX' por defecto.
+\def\tick#1#2{\draw[thick] (#1)++(#2:0.12) --++ (#2-180:0.24)}
+\def\N{100} % number of samples
+%--------------------------------------------------------------------------
+% 		Paquetes de escritura
+%--------------------------------------------------------------------------
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{lipsum}
+\RequirePackage{csquotes}
+\RequirePackage{enumerate}
+\RequirePackage[shortlabels,inline]{enumitem}
+\RequirePackage{subfiles}
+\RequirePackage{tocloft}
+\RequirePackage[linktoc=section]{hyperref}
+\RequirePackage{lmodern}
+
+% --- Efectos Especiales en Texto ---
+\usepackage[outline]{contour}     % Permite dibujar un contorno alrededor del texto (efecto glow).
+\contourlength{1.1pt}             % Define el grosor del contorno.
+
+% --- Paquetes de Mejora Tipográfica ---
+\usepackage{microtype}            % Mejora la apariencia tipográfica (espaciado, justificación, etc.).
+\renewcommand{\rmdefault}{ppl} 
+
+%--------------------------------------------------------------------------
+% 		Paquetes de matematicas & Comandos 
+%--------------------------------------------------------------------------
+
+
+%-------		Paquetes		-------	
+\RequirePackage{amsmath, amsthm, amssymb, amsfonts}
+\RequirePackage{thmtools}
+\tcbuselibrary{theorems,skins,breakable}
+
+%-------		Comandos		-------	
+\RequirePackage{mathtools}
+\RequirePackage{dsfont}
+\newcommand{\1}{\mathds 1}
+\newcommand{\A}{\mathcal A}
+\renewcommand{\AA}{\mathbb A}
+\newcommand{\B}{\mathcal B}
+\newcommand{\BB}{\mathbb B}
+\newcommand{\C}{\mathcal C}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\D}{\mathcal D}
+\newcommand{\DD}{\mathbb D}
+\newcommand{\EE}{\mathbb E}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\G}{\mathcal G}
+\newcommand{\GG}{\mathbb G}
+\renewcommand{\H}{\mathcal H}
+\newcommand{\HH}{\mathbb H}
+\newcommand{\I}{\mathcal I}
+\newcommand{\II}{\mathbb I}
+\newcommand{\J}{\mathcal J}
+\newcommand{\JJ}{\mathbb J}
+\newcommand{\K}{\mathcal K}
+\newcommand{\KK}{\mathbb K}
+\renewcommand{\L}{\mathcal L}
+\newcommand{\LL}{\mathbb L}
+\newcommand{\M}{\mathcal M}
+\newcommand{\MM}{\mathbb M}
+\newcommand{\n}{\mathcal N}
+\newcommand{\NN}{\mathbb N}
+\renewcommand{\O}{\mathcal O}
+\newcommand{\OO}{\mathbb O}
+\renewcommand{\P}{\mathcal P}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\QQ}{\mathbb Q}
+\newcommand{\R}{\mathcal R}
+\newcommand{\RR}{\mathbb R}
+\renewcommand{\S}{\mathcal S}
+\renewcommand{\SS}{\mathbb S}
+\newcommand{\T}{\mathcal T}
+\newcommand{\TT}{\mathbb T}
+\newcommand{\U}{\mathcal U}
+\newcommand{\UU}{\mathbb U}
+\newcommand{\VV}{\mathbb V}
+\newcommand{\W}{\mathcal W}
+\newcommand{\WW}{\mathbb W}
+\newcommand{\X}{\mathcal X}
+\newcommand{\XX}{\mathbb X}
+\newcommand{\Y}{\mathcal Y}
+\newcommand{\YY}{\mathbb Y}
+\newcommand{\Z}{\mathcal Z}
+\newcommand{\ZZ}{\mathbb Z}
+
+% Functions 
+\newcommand{\expo}[1]{\exp{\left( #1\right)}}
+\newcommand{\lno}[1]{\ln{\left\{#1\right\}}}
+
+%--------------------------------------------------------------------------
+% 		Colores de los Links
+%--------------------------------------------------------------------------
+\RequirePackage{xcolor}
+\definecolor{mycolor}{HTML}{A4EBA4}
+\definecolor{linkscolor}{HTML}{b4e666}
+\definecolor{linkscolor_1}{HTML}{703d6f}
+\definecolor{linkscolor_2}{HTML}{e12864}
+\RequirePackage{hyperref}
+\hypersetup{
+	colorlinks,
+	linkcolor=linkscolor_1,
+	citecolor=linkscolor_2,
+        urlcolor=linkscolor
+}
+
+%--------------------------------------------------------------------------
+% 		Secciones
+%--------------------------------------------------------------------------
+
+\renewcommand{\chaptername}{Capítulo}
+\renewcommand{\contentsname}{Contenido}
+\renewcommand{\listfigurename}{Lista de Figuras}
+
+
+%--------------------------------------------------------------------------
+% 		Encabezado
+%--------------------------------------------------------------------------
+\RequirePackage{fancyhdr}
+% Establecemos el estilo de página fancy
+\pagestyle{fancy}
+\fancyhf{} % Limpiamos encabezados y pies de página
+
+% Redefinimos cómo se almacenan los "marks" del capítulo y la sección.
+% Por defecto, \chaptermark y \sectionmark almacenan datos en \leftmark y \rightmark respectivamente.
+\renewcommand{\chaptermark}[1]{%
+	% Almacena "número de capítulo + título" en minúsculas en \leftmark
+	\markboth{{\thechapter\quad #1}}{}%
+}
+\renewcommand{\sectionmark}[1]{%
+	% Almacena "número de sección + título" en minúsculas en \rightmark
+	\markright{{\thesection\quad #1}}%
+}
+
+% Configuramos el encabezado: 
+% En las páginas pares (lado izquierdo, opción 'LE') ponemos el contenido de \leftmark (capítulo) y \rightmark (sección).
+\fancyhead[LE]{\leftmark}
+% En las páginas impares (lado derecho, opción 'RO') podrías poner otro contenido, por ejemplo solo la sección:
+\fancyhead[RO]{\rightmark}
+% También puedes configurar pies de página (por ejemplo, para la numeración de página)
+\fancyfoot[C]{\thepage}
+
+%--------------------------------------------------------------------------
+% 		Bibliografia
+%--------------------------------------------------------------------------
+
+\RequirePackage[backend=biber,style=authoryear,citestyle=authoryear]{biblatex}
+\addbibresource{References.bib}

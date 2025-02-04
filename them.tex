@@ -1,0 +1,433 @@
+% Sistem
+% The following boxes are provided:
+%   Definition:     \defn 
+%   Theorem:        \thm 
+%   Lemma:          \lem
+%   Corollary:      \cor
+%   Proposition:    \prop   
+%   Claim:          \clm
+%   Fact:           \fact
+%   Proof:          \pf
+%   Example:        \ex
+%   Remark:         \rmk (sentence), \rmkb (block)
+% Suffix
+%   r:              Allow Theorem/Definition to be referenced, e.g. thmr
+%   p:              Add a short proof block for Lemma, Corollary, Proposition or Claim, e.g. lemp
+%                   For theorems, use \pf for proof blocks
+
+\usepackage{xcolor}
+
+%-------		Un solo color		-------	
+
+\definecolor{defscol}{HTML}{A6EB75} % Definiciones
+\definecolor{asumscol}{HTML}{A6EB75}% Suposiciones
+
+\definecolor{rmkscol}{HTML}{A6EB75} % Observaciones
+\definecolor{exmscol}{HTML}{A6EB75} % Ejemplo
+
+\definecolor{lemscol}{HTML}{A6EB75} % Lemas
+\definecolor{thmscol}{HTML}{A6EB75} % Teoremas
+\definecolor{prpscol}{HTML}{A6EB75} % Proposicion
+\definecolor{corscol}{HTML}{A6EB75} % Corolario
+
+\definecolor{clmscol}{HTML}{A6EB75} % Afirmacion
+\definecolor{facscol}{HTML}{A6EB75} % Hecho
+
+
+%-------		Varios colores		-------	
+%\definecolor{defscol}{HTML}{A6EB75} % Definiciones
+%\definecolor{asumscol}{HTML}{ecd8d7}% Suposiciones
+
+%\definecolor{rmkscol}{HTML}{313160} % Observaciones
+%\definecolor{exmscol}{HTML}{e04b52} % Ejemplo
+
+%\definecolor{lemscol}{HTML}{75EB9D} % Lemas
+%\definecolor{thmscol}{HTML}{75EB75} % Teoremas
+%\definecolor{prpscol}{HTML}{A4EBA4} % Proposicion
+%\definecolor{corscol}{HTML}{D3EBD3} % Corolario
+
+%\definecolor{clmscol}{HTML}{D8EB75} % Afirmacion
+%\definecolor{facscol}{HTML}{28a8a1} % Hecho
+
+
+% ============================
+% Definición
+% ============================
+%-------		Configuraciones		-------	
+\newtcbtheorem[number within=chapter]{definicion}{Definición}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{def}
+%-------		Definición normal		-------	
+\NewDocumentCommand{\defn}{m+m}{
+	\begin{definicion}{#1}{}
+		#2
+	\end{definicion}
+}
+
+%-------		Definición con referencia		-------	
+\NewDocumentCommand{\defnr}{mm+m}{
+	\begin{definicion}{#1}{#2}
+		#3
+	\end{definicion}
+}
+
+% ============================
+% Suposición
+% ============================
+%-------		Configuraciones		-------	
+\newtcbtheorem[use counter from=definicion]{suposicion}{Suposición}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!10!white,
+}{sup}
+
+%-------		Suposición normal		-------	
+\NewDocumentCommand{\supos}{m+m}{
+	\begin{suposicion}{#1}{}
+		#2
+	\end{suposicion}
+}
+%-------		Suposición con referencia		-------	
+\NewDocumentCommand{\suposr}{mm+m}{
+	\begin{suposicion}{#1}{#2}
+		#3
+	\end{suposicion}
+}
+
+% ============================
+% Teorema
+% ============================
+
+\newtcbtheorem[number within=chapter]{teorema}{Teorema}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{teo}
+
+\NewDocumentCommand{\teo}{m+m}{
+	\begin{teorema}{#1}{}
+		#2
+	\end{teorema}
+}
+
+\NewDocumentCommand{\teor}{mm+m}{
+	\begin{teorema}{#1}{#2}
+		#3
+	\end{teorema}
+}
+
+\newenvironment{teop}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{thmscol!40!white}]
+}{
+	\textcolor{thmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+% ============================
+% Lema
+% ============================
+
+\newtcbtheorem[number within=chapter]{lema}{Lema}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{lem}
+
+\NewDocumentCommand{\lem}{m+m}{
+	\begin{lema}{#1}{}
+		#2
+	\end{lema}
+}
+
+\NewDocumentCommand{\lemr}{mm+m}{
+	\begin{lema}{#1}{#2}
+		#3
+	\end{lema}
+}
+
+\newenvironment{lemp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{lemscol!40!white}]
+}{
+	\textcolor{lemscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+
+
+% ============================
+% Corolario
+% ============================
+
+\newtcbtheorem[number within=chapter]{corolario}{Corolario}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{cor}
+
+\NewDocumentCommand{\cor}{m+m}{
+	\begin{corolario}{#1}{}
+		#2
+	\end{corolario}
+}
+
+\NewDocumentCommand{\corr}{mm+m}{
+	\begin{corolario}{#1}{#2}
+		#3
+	\end{corolario}
+}
+
+
+\newenvironment{corp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{corscol!40!white}]
+}{
+	\textcolor{corscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+% ============================
+% Proposicion
+% ============================
+
+\newtcbtheorem[number within=chapter]{proposicion}{Proposición}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{prop}
+
+\NewDocumentCommand{\prop}{m+m}{
+	\begin{proposicion}{#1}{}
+		#2
+	\end{proposicion}
+}
+
+\NewDocumentCommand{\propr}{mm+m}{
+	\begin{proposicion}{#1}{#2}
+		#3
+	\end{proposicion}
+}
+
+\newenvironment{propp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{prpscol!40!white}]
+}{
+	\textcolor{prpscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+
+
+% ============================
+% Afirmacion
+% ============================
+
+\newtcbtheorem[use counter from=definicion]{afirmacion}{Afirmación}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!10!white,
+}{af}
+
+\NewDocumentCommand{\af}{m+m}{
+	\begin{afirmacion*}{#1}{}
+		#2
+	\end{afirmacion*}
+}
+
+\NewDocumentCommand{\afr}{mm+m}{
+	\begin{afirmacion}{#1}{#2}
+		#3
+	\end{afirmacion}
+}
+
+\newenvironment{afp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{clmscol!40!white}]
+}{
+	\textcolor{clmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+
+% ============================
+% Hecho
+% ============================
+
+\newtcbtheorem[number within=chapter]{hecho}{Hecho}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!5!white,
+}{hecho}
+
+\NewDocumentCommand{\he}{mm+m}{
+	\begin{hecho}{#1}{#2}
+		#3
+	\end{hecho}
+}
+
+% ============================
+% Proof
+% ============================
+
+\NewDocumentCommand{\pf}{+m}{
+	\begin{proof}
+		[\noindent\textbf{Dem.}]
+		#1
+	\end{proof}
+}
+
+% ============================
+% Ejemplo
+% ============================
+
+\newtcbtheorem[number within=chapter]{ejemplo}{Ejemplo}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{ej}
+
+\NewDocumentCommand{\ej}{m+m}{
+	\begin{ejemplo*}{#1}{}
+		#2
+	\end{ejemplo*}
+}
+
+\NewDocumentCommand{\ejr}{mm+m}{
+	\begin{ejemplo}{#1}{#2}
+		#3
+	\end{ejemplo}
+}
+
+\newenvironment{ejp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{exmscol!40!white}]
+}{
+	\textcolor{exmscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+
+% ============================
+% Observacion
+% ============================
+\newtcbtheorem[number within=chapter]{observacion}{Observación}
+{
+	enhanced,
+	frame hidden,
+	titlerule=0mm,
+	toptitle=1mm,
+	bottomtitle=1mm,
+	fonttitle=\bfseries\large,
+	coltitle=black,
+	colbacktitle=defscol!60!,
+	colback=defscol!15!white,
+}{ob}
+
+
+\NewDocumentCommand{\ob}{m+m}{
+	\begin{observacion*}{#1}{}
+		#2
+	\end{observacion*}
+}
+
+\NewDocumentCommand{\obr}{mm+m}{
+	\begin{observacion}{#1}{#2}
+		#3
+	\end{observacion}
+}
+
+\newenvironment{obp}{
+	{\noindent{\it \textbf{Demostración.}}}
+	\tcolorbox[blanker,breakable,left=5mm,parbox=false,
+	before upper={\parindent15pt},
+	after skip=10pt,
+	borderline west={1mm}{0pt}{rmkscol!40!white}]
+}{
+	\textcolor{rmkscol!40!white}{\hbox{}\nobreak\hfill$\blacksquare$} 
+	\endtcolorbox
+}
+
+
